@@ -16,13 +16,15 @@ body{
   background-position: center;  /* Parallax effect */
   background-repeat: no-repeat; /* Parallax effect */
   background-size: cover;       /* Parallax effect */
-  color: white;
+  color: black;
+  background-color: rgba(255, 255, 255, .8);
   height: 400px;                /* Parallax effect */
 }
 
 
 .overview p{
-  color: white;
+  color: black;
+  background-color: rgba(255, 255, 255, .8);
   font-size: 24px;
   padding: 0 100px;
   text-align: center;
@@ -70,8 +72,8 @@ nav{
 }
 
 footer{
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   padding-top: 30px;
   text-align: center;
 }
@@ -139,8 +141,8 @@ nav a:hover, nav a:focus {
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
 div:first-child {
-  grid-column: 1/-1;
   background-image: url("../images/header.jpg");
+  grid-column: 1/-1;
 }
 
 
