@@ -150,6 +150,7 @@ div:first-child {
  four rows in the grid. */
  .about, .method, .clients, .contact {
   grid-column: 2 / span 1;
+  column-gap: 10px;
 }
 
 .about {
