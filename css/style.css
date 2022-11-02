@@ -10,21 +10,18 @@ body{
   padding: 0;
 }
 
-
 .overview{
   background-attachment: fixed; /* Parallax effect */     
   background-position: center;  /* Parallax effect */
   background-repeat: no-repeat; /* Parallax effect */
   background-size: cover;       /* Parallax effect */
-  color: black;
-  background-color: rgba(255, 255, 255, .8);
+  color: white;
   height: 400px;                /* Parallax effect */
 }
 
 
 .overview p{
-  color: black;
-  background-color: rgba(255, 255, 255, .8);
+  color: white;
   font-size: 24px;
   padding: 0 100px;
   text-align: center;
@@ -72,8 +69,8 @@ nav{
 }
 
 footer{
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   padding-top: 30px;
   text-align: center;
 }
@@ -115,13 +112,13 @@ nav a:hover, nav a:focus {
 
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
-.skip {
+.skip a {
   position: absolute;
   top: -40px;
 }
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
-.skip:focus {
+.skip a:focus {
   top: 20px;
 }
 
@@ -134,23 +131,25 @@ nav a:hover, nav a:focus {
 /* Step 4: Write selector/rule property to style the container */
 .container {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 5fr 1 fr;
   row-gap: 15px;
 }
 
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
-div:first-child {
+.container div:first-child {
+  grid-column: 1 / span 3;
   background-image: url("../images/header.jpg");
-  grid-column: 1/-1;
+  background-repeat: no-repeat;
 }
 
 
 /* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
  four rows in the grid. */
+
  .about, .method, .clients, .contact {
   grid-column: 2 / span 1;
-  column-gap: 10px;
+  /* column-gap: 10px; */
 }
 
 .about {
@@ -170,52 +169,55 @@ div:first-child {
 }
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
+
+      .about-image, .method-image, .clients-image, .contact-image {
+        grid-column: 1 / span 3;
+        max-height: 600px;
+        overflow: hidden;
+      }
+
+      .about-image {
+        grid-row-start: 2;
+      }
       
-.about-image, .method-image, .clients-image, .contact-image {
-  grid-column: 1/-1;
-  max-height: 600px;
-  overflow: hidden;
-}
-
-.about-image {
-  grid-row-start: 2;
-}
-
-.method-image{
-  grid-row-start: 3;
-}
-
-.clients-image{
-  grid-row-start: 4;
-}
-
-.contact-image {
-  grid-row-start: 5;
-}
+      .method-image{
+        grid-row-start: 3;
+      }
+      
+      .clients-image{
+        grid-row-start: 4;
+      }
+      
+      .contact-image {
+        grid-row-start: 5;
+      }
 
  /* Step 8: Write the selector/rule property to style the .text-block class. */
 .text-block {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 /* Add your media query here */
 @media only screen and (min-width: 800px) {
 
-  /* Step 9: Write the selector/rule property to style the nav element */
-  nav {
-    text-align: right;
-    padding: 30px 0px 30px 0px;
-  }
 
+  /* Step 9: Write the selector/rule property to style the nav element */
+nav {
+  text-align: right;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
  
   /* Step 10: Write the selector/rule property to update the .container class */
-  .container {
-    display: grid;
-    grid-template-columns: 50px auto 500px auto 50px;
-  }
+.container {
+  display: grid;
+  grid-template-columns: 50px, auto, 500px, auto, 50px;
+}
+
+.container div:first-child {
+  grid-column: 1 / span 5;
+}
 
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
   .about, .clients, .method-image, .contact-image {
@@ -226,10 +228,11 @@ div:first-child {
     grid-column: 2 / span 2;
   }
 
-
  /* Step 13:Write the selector/rule property to update the .text-block class */
- .text-block {
+
+.text-block {
   max-height: 250px;
   overflow: auto;
- }
+}
+
 }
